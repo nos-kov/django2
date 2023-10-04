@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+import copy
 
 DATA = {
     'omlet': {
@@ -28,3 +30,35 @@ DATA = {
 #     'ингредиент2': количество2,
 #   }
 # }
+
+result = copy.deepcopy(DATA)
+
+def get_serv(request):
+    try:
+        servings = int(request.GET.get("servings", 1))
+    except ValueError:
+        servings = 1 
+    return servings
+
+def omelet(request):
+    servings = get_serv(request)
+    for k, v in DATA["omlet"].items():
+        result["omlet"][k] = round(v * servings, 2)
+    context = {"recipe": result["omlet"]}
+    return render(request, 'calculator/index.html', context)
+
+
+def pasta(request):
+    servings = get_serv(request)
+    for k, v in DATA["pasta"].items():
+        result["pasta"][k] = round(v * servings, 2)
+    context = {"recipe": result["pasta"]}
+    return render(request, 'calculator/index.html', context)
+
+
+def buter(request):
+    servings = get_serv(request)
+    for k, v in DATA["buter"].items():
+        result["buter"][k] = round(v * servings, 2)
+    context = {"recipe": result["buter"]}
+    return render(request, 'calculator/index.html', context)
