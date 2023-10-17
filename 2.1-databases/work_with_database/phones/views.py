@@ -15,3 +15,5 @@ def show_product(request, slug):
     template = 'product.html'
     context = {}
     return render(request, template, context)
+
+#test
