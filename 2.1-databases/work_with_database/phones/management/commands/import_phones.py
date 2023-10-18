@@ -15,3 +15,4 @@ class Command(BaseCommand):
         for phone in phones:
             # TODO: Добавьте сохранение модели
             pass
+            #phone = Phone(name= , price,image,release_date,lte_exists,slug
