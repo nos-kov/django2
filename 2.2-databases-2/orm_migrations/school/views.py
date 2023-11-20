@@ -1,7 +1,7 @@
 from django.views.generic import ListView
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Teacher, Student
+from .models import Teacher, Student, Link
 
 from .models import Student
 
@@ -15,3 +15,12 @@ def students_list(request):
     ordering = 'group'
 
     return render(request, template, context)
+
+def add(request):
+
+    student = Student.objects.create(name="test", group="test")
+    teacher = Teacher.objects.create(name="test", subject="test")
+    link = Link.objects.create(teacher_id="1", student_id="3")
+    link = Link.objects.create(teacher_id="2", student_id="2")
+    msg="done"
+    return HttpResponse(msg)
