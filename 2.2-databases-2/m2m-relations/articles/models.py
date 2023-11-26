@@ -24,6 +24,6 @@ class Article(models.Model):
 
 
 class Scope(models.Model):
-    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name="scopes")
-    tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name="scopes")
-    is_main = models.BooleanField(default=False)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, verbose_name="Статья", related_name="scopes")
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE, verbose_name="Тег", related_name="scopes")
+    is_main = models.BooleanField(default=False, verbose_name="Основной")
