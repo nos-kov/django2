@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Tag(models.Model):
-    title = models.CharField(max_length=50, verbose_name= 'Название')
+    name = models.CharField(max_length=50, verbose_name= 'Название')
 
 
 class Article(models.Model):
@@ -11,7 +11,7 @@ class Article(models.Model):
     text = models.TextField(verbose_name='Текст')
     published_at = models.DateTimeField(verbose_name='Дата публикации')
     image = models.ImageField(null=True, blank=True, verbose_name='Изображение',)
-    tags = models.ManyToManyField(Tag, related_name='articles')
+    tags = models.ManyToManyField(Tag, related_name='articles', through='Scope')
 
     class Meta:
         verbose_name = 'Статья'
