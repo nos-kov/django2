@@ -7,7 +7,7 @@ POST {{baseUrl}}/products/
 Content-Type: application/json
 
 {
-  "title": "Помидор",
+  "title": "Помидор55",
   "description": "Лучшие помидоры на рынке"
 }
 
@@ -61,6 +61,12 @@ Content-Type: application/json
   ]
 }
 
+###
+
+# get stock
+
+GET {{baseUrl}}/stocks/
+Content-Type: application/json
 ###
 
 # обновляем записи на складе

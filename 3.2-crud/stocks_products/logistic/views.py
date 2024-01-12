@@ -20,8 +20,9 @@ class StockViewSet(ModelViewSet):
     serializer_class = StockSerializer
     pagination_class = LimitOffsetPagination
     # при необходимости добавьте параметры фильтрации
+    filterset_fields = ('title', 'description')
 
-class ProductFilter(filters.FilterSet):
-    class Meta:
-        model = Product
-        fields = ('title', 'description')
+#class ProductFilter(filters.FilterSet):
+ #   class Meta:
+  #      model = Product
+   #     fields = ('title', 'description')
